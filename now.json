@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "name": "code-craft",
+    "builds": [
+      {"src": "package.json", "use": "@now/static-build", "config": {"distDir": "build"}}
+    ],
+    "routes": [
+      {"src": "/static/(.*)", "headers": {"cache-control": "s-maxage=31536000,immutable"}, "dest": "/static/$1"},
+      {"src": "/precache-manifest.(.*)", "dest": "/precache-manifest.$1"},
+      {"src": "/(.*)", "headers": {"cache-control": "s-maxage=0"}, "dest": "/index.html"}
+    ]
+  }
