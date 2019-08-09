@@ -37,7 +37,7 @@ class Mode extends Component {
         const activeMode = state.activeModeIndex === index ? 'active' : ''
         return (
             <Row noGutters className={`modeList ${activeMode}`} onClick={() => this.onModeSelect(index, this.state.value)}>
-                <Column lg={8} md={8} sm={10} xs={10} className="d-flex">
+                <Column lg={8} md={8} sm={10} xs={10} className="d-flex modeTitleWrapper">
                     <div className="modeIcon">{image}</div>
                     <div className="modeTitle text-capitalize">{title}</div>
                 </Column>
