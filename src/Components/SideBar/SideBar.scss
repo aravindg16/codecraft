@@ -19,22 +19,45 @@
 
     .sideBar {
         width: 420px;
+        height: 100%;
         position: fixed;
         overflow: hidden auto;
         top: 0;
-        bottom: 0;
+        left: 0;
         -webkit-transition:all 0.5s ease-in-out;
         -moz-transition:all 0.5s ease-in-out;
         -o-transition:all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out;
 
         &.inactive {
-            width: 0px;
+            left: -420px;
+            overflow: hidden;
+
+            &:after {
+                left: -380px;
+            }
+        }
+
+        &:after {
+            content: '';
+            background-image: linear-gradient(135deg, #AD6BFF 0%, #74BCF7 100%);
+            position: fixed;
+            left: 0px;
+            top: 0;
+            width: 380px;
+            height: 100%;
+            z-index: 0;
+            -webkit-transition:all 0.5s ease-in-out;
+            -moz-transition:all 0.5s ease-in-out;
+            -o-transition:all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
         }
     
         .sideBarPanel {
             width: 380px;
-            background-image: linear-gradient(135deg, #AD6BFF 0%, #74BCF7 100%);
+            height: 100%;
+            z-index: 2;
+            position: relative;
 
             .sideBarListContainer {
                 padding: 25px 0;
@@ -139,6 +162,16 @@
         width: 250px;
         .sideBar {
             width: 250px;
+            &.inactive {
+                left: -250px;
+
+                &:after {
+                    left: -210px;
+                }
+            }
+            &:after {
+                width: 210px;
+            }
             .sideBarPanel {
                 width: 210px;
                 .sideBarListContainer {
@@ -186,6 +219,15 @@
         width: 190px;
         .sideBar {
             width: 190px;
+            &.inactive {
+                left: -190px;
+                &:after {
+                    left: -150px;
+                }
+            }
+            &:after {
+                width: 150px;
+            }
             .sideBarPanel {
                 width: 150px;
                 .sideBarListContainer {
