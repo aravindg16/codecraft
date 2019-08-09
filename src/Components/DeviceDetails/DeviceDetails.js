@@ -24,16 +24,16 @@ class DeviceDetail extends Component {
         const customClass = !state.isSidebarActive ? "active" : ""
         return (
             <>
+                <div className={`deviceDetailsWrapper ${customClass}`}>
                 <div className={`plusIcon ${customClass}`}>
+                <MdAdd style={{width:"30px",height:"30px"}} />
+            </div>
+            <div className={`deviceTitleWrapper d-flex align-items-center ${customClass}`}>
+                <div className="deviceTitle text-uppercase">devices</div>
+                <div className="addDevice justify-content-center align-items-center">
                     <MdAdd style={{width:"30px",height:"30px"}} />
                 </div>
-                <div className={`deviceTitleWrapper d-flex align-items-center ${customClass}`}>
-                    <div className="deviceTitle text-uppercase">devices</div>
-                    <div className="addDevice justify-content-center align-items-center">
-                        <MdAdd style={{width:"30px",height:"30px"}} />
-                    </div>
-                </div>
-                <div className={`deviceDetailsWrapper ${customClass}`}>
+            </div>
                     <div className="selectedDeviceWrapper d-flex justify-content-between align-items-center">
                         <div className="selectedDeviceTitle text-uppercase">{state.activeDevice}</div>
                         <div className={`toggleButton d-flex align-items-center ${toogleActive}`} onClick={this.onToggleSwitch}>

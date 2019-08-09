@@ -36,6 +36,11 @@
             &:after {
                 left: -380px;
             }
+            .sideBarPanel {
+                &:after, &:before {
+                    left: -380px;
+                }
+            }
         }
 
         &:after {
@@ -69,6 +74,10 @@
                 background: linear-gradient(180deg, #AD6BFF, #AD6BFF00);
                 z-index: 4;
                 height: 180px;
+                -webkit-transition:all 0.5s ease-in-out;
+                -moz-transition:all 0.5s ease-in-out;
+                -o-transition:all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
             }
 
             &:after {

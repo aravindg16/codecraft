@@ -51,7 +51,7 @@ class RangeIntensity extends Component {
             radius = 130
         }
         if(IS_BROWSER && window.innerWidth < 768) {
-            radius = 100
+            radius = 77.5
         }
         this.setState({
             radius: radius

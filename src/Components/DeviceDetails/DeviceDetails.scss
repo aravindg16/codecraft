@@ -11,10 +11,9 @@
     transition: all 0.5s ease-in-out;
 }
 .deviceTitleWrapper {
-    margin-left: 380px;
-    padding: 75px 75px 0px;
     width: 100%;
-    justify-content: space-between;
+    padding-top: 75px;
+    justify-content: flex-start;
     -webkit-transition:all 0.125s ease-in-out;
     -moz-transition:all 0.5s ease-in-out;
     -o-transition:all 0.5s ease-in-out;
@@ -30,6 +29,8 @@
         display: flex;
         width: 56px;
         height: 56px;
+        justify-self: flex-end;
+        margin-left: auto;
         background-image: linear-gradient(135deg, #DEFFC9 0%, #A3F8FF 100%);
         box-shadow: 0 15px 30px 0 rgba(234,252,223,0.40);
         cursor: pointer;
@@ -37,7 +38,7 @@
 }
 .deviceDetailsWrapper {
     margin-left: 380px;
-    width: 100%;
+    width: calc(100% - 380px);
     background-color: #FEFFFE;
     padding: 0px 75px;
     -webkit-transition:all 0.5s ease-in-out;
@@ -50,6 +51,7 @@
         .selectedDeviceTitle {
             font-family: Montserrat-Bold;
             font-size: 32px;
+            word-break: break-word;
             color: #000000;
             letter-spacing: 5.12px;
             text-shadow: 0 20px 25px rgba(0,0,0,0.15);
@@ -58,6 +60,7 @@
             width: 42px;
             height: 24px;
             padding: 0 5px;
+            flex: 0 0 42px;
             background: #ffffff;
             border: 2px solid #000000;
             box-shadow: 0 12px 12px 0 rgba(0,0,0,0.15);
@@ -223,12 +226,9 @@
 }
 
 @media (max-width: 991px) {
-    .deviceTitleWrapper {
-        margin-left: 210px;
-        padding: 70px 40px 0px 60px;
-    }
     .deviceDetailsWrapper {
         margin-left: 210px;
+        width: calc(100% - 210px);
         padding: 0px 40px 0px 60px;
         .shadesWrapper, .modesWrapper, .IntensityWrapper {
             .headingWrapper {
@@ -258,14 +258,11 @@
 
 @media (max-width: 767px) {
     .plusIcon {
-        margin-left: 150px;
-        padding: 0px 40px 0px 50px;
+        padding-top: 0px;
     }
     .deviceTitleWrapper {
-        margin-left: 0px;
         z-index: 2;
-        justify-content: center;
-        padding: 25px 40px 0px;
+        padding-top: 25px;
         .addDevice {
             display: none;
         }
@@ -276,6 +273,7 @@
     }
     .deviceDetailsWrapper {
         margin-left: 150px;
+        width: calc(100% - 150px);
         padding: 0px 20px 0px 50px;
         .selectedDeviceWrapper {
             .selectedDeviceTitle {
@@ -306,14 +304,14 @@
         .IntensityWrapper {
             .rangeText {
                 font-size: 36px;
-                width: 200px;
-                margin-top: 55px;
+                width: 155px;
+                margin-top: 35px;
                 letter-spacing: 5.76px;
             }
         }
     }
     .plusIcon {
-        padding: 30px 20px 0px;
+        padding-top: 30px;
         width: 100%;
         display: flex;
         justify-content: flex-end;
@@ -329,6 +327,28 @@
                 .checkBoxContainer {
                     margin-right: 18px;
                 }
+            }
+        }
+    }
+    .deviceTitleWrapper {
+        left: -120px;
+        position: relative;
+    }
+
+    .deviceDetailsWrapper {
+        .selectedDeviceWrapper {
+            flex-direction: column;
+            align-items: flex-end !important;
+
+            .selectedDeviceTitle {
+                order: 1;
+                align-self: flex-start;
+                margin-right: auto;
+            }
+
+            .toggleButton {
+                order: 0;
+                flex: 0 0 24px;
             }
         }
     }
