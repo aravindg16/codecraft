@@ -55,9 +55,27 @@
     
         .sideBarPanel {
             width: 380px;
-            height: 100%;
             z-index: 2;
             position: relative;
+            margin-top: 120px;
+            margin-bottom: 120px;
+
+            &:before, &:after {
+                content: '';
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 380px;
+                background: linear-gradient(180deg, #ac6dff, transparent);
+                z-index: 4;
+                height: 180px;
+            }
+
+            &:after {
+                top: auto;
+                bottom: 0;
+                background: linear-gradient(180deg, transparent, #75baf7);
+            }
 
             .sideBarListContainer {
                 padding: 25px 0;
@@ -174,6 +192,9 @@
             }
             .sideBarPanel {
                 width: 210px;
+                &:before, &:after {
+                    width: 210px;
+                }
                 .sideBarListContainer {
                     .sideBarList {
                         height: 140px;
@@ -230,6 +251,9 @@
             }
             .sideBarPanel {
                 width: 150px;
+                &:before, &:after {
+                    width: 150px;
+                }
                 .sideBarListContainer {
                     padding: 10px 0px;
     
