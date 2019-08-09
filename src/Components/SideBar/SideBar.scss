@@ -66,7 +66,7 @@
                 left: 0;
                 top: 0;
                 width: 380px;
-                background: linear-gradient(180deg, #ac6dff, transparent);
+                background: linear-gradient(180deg, #AD6BFF, #AD6BFF00);
                 z-index: 4;
                 height: 180px;
             }
@@ -74,7 +74,7 @@
             &:after {
                 top: auto;
                 bottom: 0;
-                background: linear-gradient(180deg, transparent, #75baf7);
+                background: linear-gradient(180deg, #74BCF700, #74BCF7);
             }
 
             .sideBarListContainer {
@@ -186,14 +186,22 @@
                 &:after {
                     left: -210px;
                 }
+                .sideBarPanel {
+                    &:after, &:before {
+                        left: -210px;
+                    }
+                }
             }
             &:after {
                 width: 210px;
             }
             .sideBarPanel {
                 width: 210px;
+                margin-bottom: 80px;
+                margin-top: 80px;
                 &:before, &:after {
                     width: 210px;
+                    height: 120px;
                 }
                 .sideBarListContainer {
                     .sideBarList {
@@ -245,14 +253,22 @@
                 &:after {
                     left: -150px;
                 }
+                .sideBarPanel {
+                    &:after, &:before {
+                        left: -150px;
+                    }
+                }
             }
             &:after {
                 width: 150px;
             }
             .sideBarPanel {
                 width: 150px;
+                margin-top: 60px;
+                margin-bottom: 60px;
                 &:before, &:after {
                     width: 150px;
+                    height: 80px;
                 }
                 .sideBarListContainer {
                     padding: 10px 0px;
