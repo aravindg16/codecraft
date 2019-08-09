@@ -1,12 +1,36 @@
 .sideBarContainer {
     width: 420px;
 
+    .sideBarOpenCloseIcon {
+        position: fixed;
+        padding: 30px 20px 0px;
+        z-index: 2;
+        svg {
+            fill: #FFFFFF;
+        }
+
+        &.inactive {
+            transform: rotateY(180deg);
+            svg {
+                fill: #000000;
+            }
+        }
+    }
+
     .sideBar {
         width: 420px;
         position: fixed;
         overflow: hidden auto;
         top: 0;
         bottom: 0;
+        -webkit-transition:all 0.5s ease-in-out;
+        -moz-transition:all 0.5s ease-in-out;
+        -o-transition:all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+
+        &.inactive {
+            width: 0px;
+        }
     
         .sideBarPanel {
             width: 380px;

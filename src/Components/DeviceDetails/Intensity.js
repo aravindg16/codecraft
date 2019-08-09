@@ -3,7 +3,11 @@ import {observer} from 'mobx-react'
 import { state } from '../../state'
 import './DeviceDetails.scss'
 
+const IS_BROWSER = typeof window === 'object'
+
 class RangeIntensity extends Component {
+    isDesktop = IS_BROWSER && window.innerWidth > 991
+    isMobile = IS_BROWSER && window.innerWidth < 768
     static defaultProps = {
         value: 0
     }
@@ -16,7 +20,13 @@ class RangeIntensity extends Component {
             angle: this.valueToAngle(value)
         }
         this.strokeWidth = 5
-        this.radius = 100
+        this.radius = IS_BROWSER 
+            ? this.isDesktop
+                ? 130
+                : this.isMobile
+                    ? 100
+                    :120
+            : 100
         this.touches = []
         this.allowChange = false
         this.isDrag = false
@@ -31,6 +41,7 @@ class RangeIntensity extends Component {
                 value,
                 angle: this.valueToAngle(value)
             })
+            state.intensityValue = value
         }
     }
     
@@ -152,6 +163,7 @@ class RangeIntensity extends Component {
         const y = clientY - top
         const { value, angle } = this.stepRounding(this.angle(y, x))
         this.setState({ value, angle })
+        state.intensityValue = value
         this.props.onChange && this.props.onChange(value, this.props)
     }
     render() {
@@ -160,9 +172,10 @@ class RangeIntensity extends Component {
             ransform: 'rotate(0deg)',
             transformOrigin: '50% 50%'
         }
+        const size = this.radius * 2
         return (
             <div className="IntensityWrapper">
-                <div className="tittleWrapper d-flex align-items-center">
+                <div className="headingWrapper d-flex align-items-center">
                     <div className="title text-uppercase">intensity</div>
                     <div className="dash"></div>
                 </div>
@@ -174,7 +187,7 @@ class RangeIntensity extends Component {
                     onTouchEnd={this.up}
                     onTouchCancel={this.up}>
                     <Fragment>
-                        <svg ref={this.rangeSliderArc} width={200} height={200}>
+                        <svg ref={this.rangeSliderArc} width={size} height={size}>
                             <defs>
                                 <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
                                     <stop offset="0%" stop-color="#AD6BFF"></stop>
@@ -210,7 +223,7 @@ class RangeIntensity extends Component {
                         />
                     </Fragment>
                 </div>
-                <div>{state.intensityValue}</div>
+                <div className="rangeText d-flex justify-content-center">{this.state.value}</div>
             </div>
         )
     }

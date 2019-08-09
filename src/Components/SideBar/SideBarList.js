@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {observer} from 'mobx-react'
+import { observer } from 'mobx-react'
 import IosArrowForward from 'react-ionicons/lib/IosArrowForward'
 import { state } from '../../state'
 import './SideBar.scss'
