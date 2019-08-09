@@ -14,10 +14,10 @@ class DeviceDetail extends Component {
         state.isToggleEnabled = !state.isToggleEnabled
     }
     renderListOfShades = (shade, index) => {
-        return <Shades shade={shade} index={index} />
+        return <Shades shade={shade} index={index} key={shade + index} />
     }
     renderModeList = (mode, index) => {
-        return <Modes mode={mode} index={index} />
+        return <Modes mode={mode} index={index} key={mode + index} />
     }
     render() {
         const toogleActive = state.isToggleEnabled ? "active" : ""
@@ -45,7 +45,7 @@ class DeviceDetail extends Component {
                             <div className="title text-uppercase">shades</div>
                             <div className="dash"></div>
                         </div>
-                        <div className="checkBoxWrapper d-flex justify-content-between align-items-center">
+                        <div className="checkBoxWrapper d-flex align-items-center">
                             {listOfShades.map(this.renderListOfShades)}
                         </div>
                     </div>

@@ -11,7 +11,7 @@ class Sidebar extends Component {
         state.isSidebarActive = !state.isSidebarActive
     }
     renderSideBarList = (device, index) => {
-        return <SideBarLists index={index} {...device} />
+        return <SideBarLists index={index} {...device} key={device + index} />
     }
     render() {
         const styleClassName = state.isSidebarActive ? "" : "inactive"

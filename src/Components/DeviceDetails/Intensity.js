@@ -6,8 +6,6 @@ import './DeviceDetails.scss'
 const IS_BROWSER = typeof window === 'object'
 
 class RangeIntensity extends Component {
-    isDesktop = IS_BROWSER && window.innerWidth > 991
-    isMobile = IS_BROWSER && window.innerWidth < 768
     static defaultProps = {
         value: 0
     }
@@ -17,16 +15,10 @@ class RangeIntensity extends Component {
         this.arcSize = 180
         this.state = {
             value,
-            angle: this.valueToAngle(value)
+            angle: this.valueToAngle(value),
+            radius: 100
         }
         this.strokeWidth = 5
-        this.radius = IS_BROWSER 
-            ? this.isDesktop
-                ? 130
-                : this.isMobile
-                    ? 100
-                    :120
-            : 100
         this.touches = []
         this.allowChange = false
         this.isDrag = false
@@ -49,7 +41,22 @@ class RangeIntensity extends Component {
         if (this.rangeSliderArc.current) {
             this.rangeSliderArc.current.style.pointerEvents = 'none'
         }
+        this.updateDimensions()
+        window.addEventListener("resize", this.updateDimensions);
     }
+
+    updateDimensions = () => {
+        let radius = 120
+        if(IS_BROWSER && window.innerWidth > 991) {
+            radius = 130
+        }
+        if(IS_BROWSER && window.innerWidth < 768) {
+            radius = 100
+        }
+        this.setState({
+            radius: radius
+        })
+      }
     
     up = e => {
         if (this.rangeSliderArc.current) {
@@ -92,7 +99,7 @@ class RangeIntensity extends Component {
     }
     
     getArc = (startAngle, endAngle) => {
-        const pathRadius = this.radius - this.strokeWidth / 2
+        const pathRadius = this.state.radius - this.strokeWidth / 2
         const start = this.polarToCartesian(pathRadius,startAngle)
         const end = this.polarToCartesian(pathRadius,endAngle)
         const arcSweep = startAngle <= 180 ? 0 : 1
@@ -101,8 +108,8 @@ class RangeIntensity extends Component {
       
     polarToCartesian(pathRadius, angle) {
         const angleInRadians = (angle - 180) * (Math.PI / 180)
-        const x = this.radius + pathRadius * Math.cos(angleInRadians)
-        const y = this.radius + pathRadius * Math.sin(angleInRadians)
+        const x = this.state.radius + pathRadius * Math.cos(angleInRadians)
+        const y = this.state.radius + pathRadius * Math.sin(angleInRadians)
         return x + ' ' + y
     }
     
@@ -157,8 +164,8 @@ class RangeIntensity extends Component {
         }
         const { clientX, clientY } = event
         const rect = this.rangeSliderArc.current.getBoundingClientRect()
-        const top = rect.top + this.radius
-        const left = rect.left + this.radius
+        const top = rect.top + this.state.radius
+        const left = rect.left + this.state.radius
         const x = clientX - left
         const y = clientY - top
         const { value, angle } = this.stepRounding(this.angle(y, x))
@@ -172,7 +179,7 @@ class RangeIntensity extends Component {
             ransform: 'rotate(0deg)',
             transformOrigin: '50% 50%'
         }
-        const size = this.radius * 2
+        const size = this.state.radius * 2
         return (
             <div className="IntensityWrapper">
                 <div className="headingWrapper d-flex align-items-center">
@@ -190,8 +197,8 @@ class RangeIntensity extends Component {
                         <svg ref={this.rangeSliderArc} width={size} height={size}>
                             <defs>
                                 <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#AD6BFF"></stop>
-                                    <stop offset="100%" stop-color="#74BCF7"></stop>
+                                    <stop offset="0%" stopColor="#AD6BFF"></stop>
+                                    <stop offset="100%" stopColor="#74BCF7"></stop>
                                 </linearGradient>
                             </defs>
         

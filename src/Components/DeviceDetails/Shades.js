@@ -20,8 +20,10 @@ class Shade extends Component {
         }
         const activeCheckbox = state.activeCheckboxIndex === index ? 'active' : ''
         return (
-            <div className={`checkBox d-flex justify-content-center align-items-center ${activeCheckbox}`} style={style} onClick={() => this.onCheckBoxClick(index)}>
-                {activeCheckbox && <MdCheckmark style={{fill: "#ffffff", width:"24px", height: "24px"}}/>}
+            <div className={`checkBoxContainer ${activeCheckbox}`}>
+                <div className="checkBox d-flex justify-content-center align-items-center" style={style} onClick={() => this.onCheckBoxClick(index)}>
+                    {activeCheckbox && <MdCheckmark style={{fill: "#ffffff", width:"24px", height: "24px"}}/>}
+                </div>
             </div>
         )
     }

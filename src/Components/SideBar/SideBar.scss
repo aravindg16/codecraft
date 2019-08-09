@@ -223,44 +223,44 @@
     }
 }
 
-@media (max-width: 374px) {
-    .sideBarContainer {
-        width: 150px;
-        .sideBar {
-            width: 150px;
-            .sideBarPanel {
-                width: 110px;
-                .sideBarListContainer {
-                    .sideBarList {
-                        padding: 0 10px;
-                        .listImage {
-                            width: 80px;
-                            height: 80px;
-                            left: 10px;
-                        }
-                        .titleWrapper {
-                            width: 80px;
-                            height: 80px;
-                            .title {
-                                letter-spacing: 0px;
-                            }
-                        }
-                        &.active {
-                            margin-bottom: 10px;
-                            .listImage {
-                                width: 100px;
-                                height: 100px;
-                                transform: translateX(14px);
-                            }
-                            .selectedArrow {
-                                width: 30px;
-                                height: 30px;
-                                transform: translate(95px, 20px);
-                            }
-                        }
-                    }
-                } 
-            }
-        }
-    }
-}
+// @media (max-width: 374px) {
+//     .sideBarContainer {
+//         width: 150px;
+//         .sideBar {
+//             width: 150px;
+//             .sideBarPanel {
+//                 width: 110px;
+//                 .sideBarListContainer {
+//                     .sideBarList {
+//                         padding: 0 10px;
+//                         .listImage {
+//                             width: 80px;
+//                             height: 80px;
+//                             left: 10px;
+//                         }
+//                         .titleWrapper {
+//                             width: 80px;
+//                             height: 80px;
+//                             .title {
+//                                 letter-spacing: 0px;
+//                             }
+//                         }
+//                         &.active {
+//                             margin-bottom: 10px;
+//                             .listImage {
+//                                 width: 100px;
+//                                 height: 100px;
+//                                 transform: translateX(14px);
+//                             }
+//                             .selectedArrow {
+//                                 width: 30px;
+//                                 height: 30px;
+//                                 transform: translate(95px, 20px);
+//                             }
+//                         }
+//                     }
+//                 } 
+//             }
+//         }
+//     }
+// }
