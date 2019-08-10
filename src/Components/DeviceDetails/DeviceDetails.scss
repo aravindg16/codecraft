@@ -1,237 +1,248 @@
+$color-black: #000000;
+$color-white: #FFFFFF;
+$color-white-light: #FEFFFE;
+
+@mixin transition() {
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
 .deviceTitleWrapper, .plusIcon, .deviceDetailsWrapper {
     &.active {
         margin-left: 0px;
         width: 100%;
     }
 }
-.mobileDeviceTitle {
+
+.mobileDeviceTitle, .plusIcon {
     display: none;
 }
+
 .plusIcon {
-    display: none;
-    -webkit-transition:all 0.125s ease-in-out;
-    -moz-transition:all 0.5s ease-in-out;
-    -o-transition:all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    @include transition();
 }
+
 .deviceTitleWrapper {
     width: 100%;
     padding-top: 75px;
     justify-content: flex-start;
-    -webkit-transition:all 0.125s ease-in-out;
-    -moz-transition:all 0.5s ease-in-out;
-    -o-transition:all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    .deviceTitle {
-        font-family: Montserrat-Bold;
-        font-size: 48px;
-        color: #000000;
-        letter-spacing: 8.4px;
-    }
-    
-    .addDevice {
-        display: flex;
-        width: 56px;
-        height: 56px;
-        justify-self: flex-end;
-        margin-left: auto;
-        background-image: linear-gradient(135deg, #DEFFC9 0%, #A3F8FF 100%);
-        box-shadow: 0 15px 30px 0 rgba(234,252,223,0.40);
-        cursor: pointer;
-    }
+    @include transition();
 }
+
+.deviceTitle {
+    font-family: Montserrat-Bold;
+    font-size: 48px;
+    color: $color-black;
+    letter-spacing: 8.4px;
+}
+
+.addDevice {
+    display: flex;
+    width: 56px;
+    height: 56px;
+    justify-self: flex-end;
+    margin-left: auto;
+    background-image: linear-gradient(135deg, #DEFFC9 0%, #A3F8FF 100%);
+    box-shadow: 0 15px 30px 0 rgba(234,252,223,0.40);
+    cursor: pointer;
+}
+
 .deviceDetailsWrapper {
     margin-left: 380px;
     width: calc(100% - 380px);
-    background-color: #FEFFFE;
+    background-color: $color-white-light;
     padding: 0px 75px;
-    -webkit-transition:all 0.5s ease-in-out;
-    -moz-transition:all 0.5s ease-in-out;
-    -o-transition:all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    @include transition();
+}
 
-
+.modeList {
+    align-items: center;
+    padding: 14px 10px;
+    cursor: pointer;
     
-    .selectedDeviceWrapper {
-        padding: 60px 0px;
-        .selectedDeviceTitle {
-            font-family: Montserrat-Bold;
-            font-size: 32px;
-            word-break: break-word;
-            color: #000000;
-            letter-spacing: 5.12px;
-            text-shadow: 0 20px 25px rgba(0,0,0,0.15);
-        }
-        .toggleButton {
-            width: 42px;
-            height: 24px;
-            padding: 0 5px;
-            flex: 0 0 42px;
-            background: #ffffff;
-            border: 2px solid #000000;
-            box-shadow: 0 12px 12px 0 rgba(0,0,0,0.15);
-            border-radius: 60px;
-            cursor: pointer;
-
-            &.active {
-                background: #000000;
-                justify-content: flex-end;
-
-                .switchButton {
-                    background: #FFFFFF;
-                }
+    &.active {
+        background-image: linear-gradient(135deg, #AD6BFF 0%, #74BCF7 100%);
+        box-shadow: 0 20px 20px 0 rgba(0,0,0,0.15);
+        .modeIcon, .modeSelect {
+            svg {
+                fill: $color-white;
             }
         }
+        .modeTitle, .intensity {
+            color: $color-white;
+        }
+    }
+}
+
+.modeListContainer {
+    padding-bottom: 60px;      
+}
+
+.modeTitleWrapper {
+    align-items: center;
+}
+
+.modeIcon {
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.modeTitle {
+    padding-left: 20px;
+}
+
+.intensity {
+    opacity: 0.6;
+}
+
+.modeSelect {
+    width: 24px;
+    height: 24px;
+    svg {
+        fill: #999c9d;
+    }
+}
+
+.modeTitle, .intensity {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: $color-black;
+    letter-spacing: 0.56px;
+}
+
+.checkBoxWrapper {
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.checkBoxContainer {
+    width: 48px;
+    height: 48px;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding: 8px;
+    cursor: pointer;
+    -webkit-transition:all 0.125s ease-in-out;
+    -moz-transition:all 0.125s ease-in-out;
+    -o-transition:all 0.125s ease-in-out;
+    transition: all 0.125s ease-in-out;
+
+    &:last-child {
+        margin-right: 0px;
+    }
+    
+    &:hover, &.active {
+        padding: 0px;
+    }
+}
+
+.checkBox {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
+}
+
+.selectedDeviceWrapper {
+    padding: 60px 0px;
+}
+
+.shadesWrapper, .modesWrapper, .IntensityWrapper {
+    .headingWrapper {
+        padding-bottom: 40px;
+        .title {
+            padding-right: 14px;
+            font-family: Montserrat-Bold;
+            font-size: 15px;
+            color: #AC6CFF;
+            letter-spacing: 1.5px;
+        }
+        .dash {
+            width: 100%;
+            border: 0 none;
+            border-top: 1px dotted #AC6CFF;
+            background: none;
+            height:0;
+        }
+    }
+}
+
+.selectedDeviceTitle {
+    font-family: Montserrat-Bold;
+    font-size: 32px;
+    word-break: break-word;
+    color: $color-black;
+    letter-spacing: 5.12px;
+    text-shadow: 0 20px 25px rgba(0,0,0,0.15);
+}
+
+.toggleButton {
+    width: 42px;
+    height: 24px;
+    padding: 0 5px;
+    flex: 0 0 42px;
+    background: $color-white;
+    border: 2px solid $color-black;
+    box-shadow: 0 12px 12px 0 rgba(0,0,0,0.15);
+    border-radius: 60px;
+    cursor: pointer;
+
+    &.active {
+        background: $color-black;
+        justify-content: flex-end;
+
         .switchButton {
-            width: 14px;
-            height: 14px;
-            background: #000000;
-            box-shadow: 0 12px 18px 0 rgba(0,0,0,0.10);
-            border-radius: 60px;
+            background: $color-white;
         }
     }
-    .shadesWrapper, .modesWrapper, .IntensityWrapper {
-        .headingWrapper {
-            padding-bottom: 40px;
-            .title {
-                padding-right: 14px;
-                font-family: Montserrat-Bold;
-                font-size: 15px;
-                color: #AC6CFF;
-                letter-spacing: 1.5px;
-            }
-            .dash {
-                width: 100%;
-                border: 0 none;
-                border-top: 1px dotted #AC6CFF;
-                background: none;
-                height:0;
-            }
-        }
-    } 
-    .shadesWrapper {
-        .checkBoxWrapper {
-            padding-bottom: 30px;
-            flex-wrap: wrap;
+}
 
-            .checkBoxContainer {
-                width: 48px;
-                height: 48px;
-                margin-right: auto;
-                margin-bottom: 30px;
-                padding: 8px;
-                cursor: pointer;
-                -webkit-transition:all 0.125s ease-in-out;
-                -moz-transition:all 0.125s ease-in-out;
-                -o-transition:all 0.125s ease-in-out;
-                transition: all 0.125s ease-in-out;
+.switchButton {
+    width: 14px;
+    height: 14px;
+    background: $color-black;
+    box-shadow: 0 12px 18px 0 rgba(0,0,0,0.10);
+    border-radius: 60px;
+}
 
-                &:last-child {
-                    margin-right: 0px;
-                }
-                
-                &:hover, &.active {
-                    padding: 0px;
-                }
-            }
-            
-            .checkBox {
-                width: 100%;
-                height: 100%;
-                box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
-            }
-        }
-    }
-    .modesWrapper {
-        .modeListContainer {
-            padding-bottom: 60px;
-            .modeList {
-                align-items: center;
-                padding: 14px 10px;
-                cursor: pointer;
-                .modeTitleWrapper {
-                    align-items: center;
-                }
-                .modeIcon {
-                    svg {
-                        width: 24px;
-                        height: 24px;
-                    }
-                }
-                .modeTitle {
-                    padding-left: 20px;
-                }
-                .intensity {
-                    opacity: 0.6;
-                }
-                .modeSelect {
-                    width: 24px;
-                    height: 24px;
-                    svg {
-                        fill: #c6c6c6;
-                    }
-                }
-                .modeTitle, .intensity {
-                    font-family: Montserrat-Regular;
-                    font-size: 18px;
-                    color: #000000;
-                    letter-spacing: 0.56px;
-                }
-                &.active {
-                    background-image: linear-gradient(135deg, #AD6BFF 0%, #74BCF7 100%);
-                    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.15);
-                    .modeIcon, .modeSelect {
-                        svg {
-                            fill: #FFFFFF;
-                        }
-                    }
-                    .modeTitle, .intensity {
-                        color: #FFFFFF;
-                    }
-                }
-            }            
-        }
-    }
-    .IntensityWrapper {
-        .rangeSlider {
-            display: inline-block;
-            position: absolute;
-            pointer-events: none;
-            .rangeSelector {
-                width: 50%;
-                pointer-events: all;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform-origin: 0 50%;
-    
-                &:after {
-                    content: '';
-                    display: block;
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 30px;
-                    position: absolute;
-                    right: -8px;
-                    background-image: linear-gradient(-135deg, #AD6BFF 0%, #74BCF7 100%);
-                    border: 1px solid #ccc;
-                    top: -10px;
-                    transform: all ease 0.4s;
-                }
-                &:hover:after {
-                    box-shadow: 0 0 10px rgb(37, 205, 247);
-                }
-            }
-        }
-        .rangeText {
-            width: 260px;
-            margin-top: 80px;
-            font-family: Montserrat-Bold;
-            font-size: 40px;
-            color: #000000;
-            letter-spacing: 6.4px;
-            text-shadow: 0 20px 25px rgba(0,0,0,0.15);
-        }
+.rangeSlider {
+    display: inline-block;
+    position: absolute;
+    pointer-events: none;
+}
+
+.rangeText {
+    width: 260px;
+    margin-top: 80px;
+    font-family: Montserrat-Bold;
+    font-size: 40px;
+    color: $color-black;
+    letter-spacing: 6.4px;
+    text-shadow: 0 20px 25px rgba(0,0,0,0.15);
+}
+
+.rangeSelector {
+    width: 50%;
+    pointer-events: all;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 0 50%;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 30px;
+        position: absolute;
+        right: -8px;
+        background-image: linear-gradient(-135deg, #AD6BFF 0%, #74BCF7 100%);
+        top: -10px;
+        transition: all ease 0.4s;
     }
 }
 
@@ -240,94 +251,91 @@
         margin-left: 210px;
         width: calc(100% - 210px);
         padding: 0px 40px 0px 60px;
-        .shadesWrapper, .modesWrapper, .IntensityWrapper {
-            .headingWrapper {
-                .title {
-                    font-size: 13px;
-                }
+    }
+    
+    .shadesWrapper, .modesWrapper, .IntensityWrapper {
+        .headingWrapper {
+            .title {
+                font-size: 13px;
             }
         }
-        .modesWrapper {
-            .modeListContainer {
-                .modeList {
-                    .modeTitle, .intensity {
-                        font-size: 16px;
-                    }
-                }
-            }
-        }
-        .IntensityWrapper {
-            .rangeText {
-                font-size: 36px;
-                width: 240px;
-                margin-top: 75px;
-            }
-        }
+    }
+    
+    .modeTitle, .intensity {
+        font-size: 16px;
+    }
+
+    .rangeText {
+        font-size: 36px;
+        width: 240px;
+        margin-top: 75px;
     }
 }
 
 @media (max-width: 767px) {
     .plusIcon {
-        padding-top: 0px;
-    }
-    .deviceTitleWrapper {
-        z-index: 2;
-        padding-top: 25px;
-        .addDevice {
-            display: none;
-        }
-        .deviceTitle {
-            font-size: 40px;
-            letter-spacing: 7px;
-        }
-    }
-    .deviceDetailsWrapper {
-        margin-left: 150px;
-        width: calc(100% - 150px);
-        padding: 0px 20px 0px 40px;
-        .selectedDeviceWrapper {
-            padding: 40px 0px;
-            .selectedDeviceTitle {
-                font-size: 25px;
-                letter-spacing: 4px;
-                padding-top: 5px;
-            }
-        }
-        .shadesWrapper, .modesWrapper, .IntensityWrapper {
-            .headingWrapper {
-                padding-bottom: 30px;
-                .title {
-                    font-size: 11px;
-                }
-            }
-        }
-        .modesWrapper {
-            .modeListContainer {
-                padding-bottom: 30px;
-                .modeList {
-                    .intensity {
-                        display: none;
-                    }
-                    .modeTitle {
-                        font-size: 14px;
-                    }
-                }
-            }
-        }
-        .IntensityWrapper {
-            .rangeText {
-                font-size: 36px;
-                width: 155px;
-                margin-top: 35px;
-                letter-spacing: 5.76px;
-            }
-        }
-    }
-    .plusIcon {
         padding-top: 30px;
         width: 100%;
         display: flex;
         justify-content: flex-end;
+    }
+
+    .deviceTitleWrapper {
+        z-index: 2;
+        padding-top: 25px;
+    }
+
+    .addDevice {
+        display: none;
+    }
+
+    .deviceTitle {
+        font-size: 40px;
+        letter-spacing: 7px;
+    }
+
+    .deviceDetailsWrapper {
+        margin-left: 150px;
+        width: calc(100% - 150px);
+        padding: 0px 20px 0px 40px;
+    }
+
+    .selectedDeviceWrapper {
+        padding: 40px 0px;   
+    }
+
+    .selectedDeviceTitle {
+        font-size: 25px;
+        letter-spacing: 4px;
+        padding-top: 5px;
+    }
+
+    .shadesWrapper, .modesWrapper, .IntensityWrapper {
+        .headingWrapper {
+            padding-bottom: 30px;
+            .title {
+                font-size: 11px;
+            }
+        }
+    }
+
+    .modeListContainer {
+        padding-bottom: 30px;
+    }
+
+    .intensity {
+        display: none;
+    }
+
+    .modeTitle {
+        font-size: 14px;
+    }
+
+    .rangeText {
+        font-size: 36px;
+        width: 155px;
+        margin-top: 35px;
+        letter-spacing: 5.76px;
     }
 }
 
@@ -337,40 +345,39 @@
         letter-spacing: 7px;
         display: flex;
         font-family: Montserrat-Bold;
-        color: #000000;
+        color: $color-black;
         position: absolute;
         justify-content: center;
         width: 100%;
         padding-top: 70px;
     }
-    .deviceTitleWrapper {
-        .deviceTitle {
-            display: none;
-        }
+    
+    .deviceTitle {
+        display: none;
     }
+    
+    .checkBoxContainer {
+        width: 42px;
+        height: 42px;
+        padding: 9px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+    
+    .checkBoxWrapper {
+        justify-content: space-between;
+        display: grid !important;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        grid-gap: 24px;
+    }
+    
+    .deviceTitleWrapper {
+        left: -120px;
+        position: relative;
+    }
+    
     .deviceDetailsWrapper {
-        .shadesWrapper {
-            .checkBoxWrapper {
-                justify-content: space-between;
-                display: grid !important;
-                grid-template-columns: auto auto auto;
-                grid-template-rows: auto auto;
-                grid-gap: 24px;
-                
-                .checkBoxContainer {
-                    width: 42px;
-                    height: 42px;
-                    padding: 9px;
-                    margin-right: 0px;
-                    margin-bottom: 0px;
-                }
-            }
-        }
-        .deviceTitleWrapper {
-            left: -120px;
-            position: relative;
-        }
-
         &.active {
             .deviceTitleWrapper {
                 left: 0px;
@@ -378,21 +385,19 @@
         }
     }
 
-    .deviceDetailsWrapper {
-        .selectedDeviceWrapper {
-            flex-direction: column;
-            align-items: flex-end !important;
+    .selectedDeviceTitle {
+        order: 1;
+        align-self: flex-start;
+        margin-right: auto;
+    }
 
-            .selectedDeviceTitle {
-                order: 1;
-                align-self: flex-start;
-                margin-right: auto;
-            }
+    .toggleButton {
+        order: 0;
+        flex: 0 0 24px;
+    }
 
-            .toggleButton {
-                order: 0;
-                flex: 0 0 24px;
-            }
-        }
+    .selectedDeviceWrapper {
+        flex-direction: column;
+        align-items: flex-end !important;
     }
 }

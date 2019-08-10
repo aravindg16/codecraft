@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import listOfDevices from './ListOfDevice'
 import MdArrowBack from 'react-ionicons/lib/MdArrowBack'
+import listOfDevices from './ListOfDevice'
 import { SideBarLists } from './SideBarList'
 import { state } from '../../state'
 import './SideBar.scss'
