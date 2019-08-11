@@ -22,6 +22,7 @@ class RangeIntensity extends Component {
         this.touches = []
         this.allowChange = false
         this.isDrag = false
+        this.allowClick = true
         this.rangeSliderArc = createRef()
         this.rangeSelector = createRef()
     }

@@ -214,7 +214,7 @@ $color-white-light: #FEFFFE;
     pointer-events: none;
 
     &.allowClick{
-        pointer-events: 'auto';
+        pointer-events: auto;
     }
 }
 
