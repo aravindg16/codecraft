@@ -19,6 +19,7 @@ class NewDevices extends Component {
     addDevice = async(data) => {
         const { serialized } = data
         console.log('Serialized Data', serialized)
+        state.isModalVisible = !state.isModalVisible
     }
     handleChange = (event) => {
         this.setState({value: event.nextValue});
