@@ -212,6 +212,10 @@ $color-white-light: #FEFFFE;
     display: inline-block;
     position: absolute;
     pointer-events: none;
+
+    &.allowClick{
+        pointer-events: 'auto';
+    }
 }
 
 .rangeText {

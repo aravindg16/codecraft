@@ -38,7 +38,7 @@ class RangeIntensity extends Component {
     }
     
     componentDidMount() {
-        if (this.rangeSliderArc.current) {
+        if (this.allowClick && this.rangeSliderArc.current) {
             this.rangeSliderArc.current.style.pointerEvents = 'none'
         }
         this.updateDimensions()
@@ -59,7 +59,7 @@ class RangeIntensity extends Component {
       }
     
     up = e => {
-        if (this.rangeSliderArc.current) {
+        if (this.allowClick && this.rangeSliderArc.current) {
             this.rangeSliderArc.current.style.pointerEvents = 'none'
         }
         this.allowChange = false
@@ -186,7 +186,7 @@ class RangeIntensity extends Component {
                     <div className="title text-uppercase">intensity</div>
                     <div className="dash"></div>
                 </div>
-                <div className="rangeSlider"
+                <div className={`rangeSlider ${this.allowClick ? 'allowClick' : ''}`}
                     onMouseMove={e => this.allowChange && this.updateValue(e, false)}
                     onMouseUp={this.up}
                     onMouseDown={this.down}

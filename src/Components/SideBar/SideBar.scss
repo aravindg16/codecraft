@@ -57,6 +57,7 @@ $color-gray: #666666;
 .sideBarOpenCloseIcon {
     position: fixed;
     padding: 30px 20px 0px;
+    cursor: pointer;
     z-index: 2;
     svg {
         fill: $color-white;
