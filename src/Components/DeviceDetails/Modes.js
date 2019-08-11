@@ -37,11 +37,11 @@ class Mode extends Component {
         const activeMode = state.activeModeIndex === index ? 'active' : ''
         return (
             <Row noGutters className={`modeList ${activeMode}`} onClick={() => this.onModeSelect(index, this.state.value)}>
-                <Column lg={8} md={8} sm={10} xs={10} className="d-flex modeTitleWrapper">
+                <Column lg={8} md={8} sm={8} xs={10} className="d-flex modeTitleWrapper">
                     <div className="modeIcon">{image}</div>
                     <div className="modeTitle text-capitalize">{title}</div>
                 </Column>
-                <Column lg={2} md={2} className="intensity">{this.state.value}%</Column>
+                <Column lg={2} md={2} sm={2} className="intensity">{this.state.value}%</Column>
                 <Column lg={2} md={2} sm={2} xs={2} className="modeSelect d-flex justify-content-end"><MdCheckmark /></Column>
             </Row>
         )

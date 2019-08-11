@@ -327,10 +327,6 @@ $color-white-light: #FEFFFE;
         padding-bottom: 30px;
     }
 
-    .intensity {
-        display: none;
-    }
-
     .modeTitle {
         font-size: 14px;
     }
@@ -343,7 +339,7 @@ $color-white-light: #FEFFFE;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 576px) {
     .mobileDeviceTitle {
         font-size: 40px;
         letter-spacing: 7px;
@@ -368,6 +364,11 @@ $color-white-light: #FEFFFE;
         margin-bottom: 0px;
     }
     
+    
+    .intensity {
+        display: none;
+    }
+
     .checkBoxWrapper {
         justify-content: space-between;
         display: grid !important;
