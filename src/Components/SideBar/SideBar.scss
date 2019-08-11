@@ -224,11 +224,11 @@ $color-gray: #666666;
     .titleWrapper {
         justify-content: flex-end;
         width: 120px;
-    }
-    .title {
-        font-size: 11px;
-        letter-spacing: 2.2px;
-        padding-bottom: 8px;
+        .title {
+            font-size: 11px;
+            letter-spacing: 2.2px;
+            padding-bottom: 8px;
+        }
     }
     .descriptionContainer {
         display: none;
@@ -295,5 +295,49 @@ $color-gray: #666666;
         .title {
             font-size: 10px;
         }
+    }
+}
+
+@media (max-width: 374px) {
+    .sideBarContainer, .sideBar {
+        width: 140px;
+    }
+    .sideBarPanel {
+        width: 110px;
+    }
+    .sideBarList {
+        padding: 0 10px;
+        &.active {
+            margin-bottom: 10px;
+            .listImage {
+                width: 100px;
+                height: 100px;
+                transform: translateX(14px);
+            }
+            .selectedArrow {
+                width: 30px;
+                height: 30px;
+                transform: translate(95px, 20px);
+            }
+        }
+    }
+    .listImage {
+        width: 80px;
+        height: 80px;
+        left: 10px;
+    }
+    .titleWrapper {
+        width: 80px;
+        height: 80px;
+        .title {
+            letter-spacing: 0px;
+        }
+    }
+    .sideBar:after {
+        width: 110px;
+    }
+    .sideBarPanel:before, .sideBarPanel:after {
+        width: 110px;
+        height: 70px;
     }
 }

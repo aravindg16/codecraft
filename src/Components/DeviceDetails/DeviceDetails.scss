@@ -21,6 +21,8 @@ $color-white-light: #FEFFFE;
 }
 
 .plusIcon {
+    cursor: pointer;
+    position: relative;
     @include transition();
 }
 
@@ -250,6 +252,26 @@ $color-white-light: #FEFFFE;
     }
 }
 
+.formLabel {
+    width: 100%;
+    select {
+        margin: 1.5rem 0px;
+    }
+    div, input, select {
+        width: 100%;
+        justify-content: flex-end;
+        span {
+            padding-right: 20px;
+        }
+    }
+}
+.addButton, .cancelButton {
+    flex: 0 0 45%;
+    button {
+        width: 100%;
+    }
+}
+
 @media (max-width: 991px) {
     .deviceDetailsWrapper {
         margin-left: 210px;
@@ -364,7 +386,6 @@ $color-white-light: #FEFFFE;
         margin-bottom: 0px;
     }
     
-    
     .intensity {
         display: none;
     }
@@ -404,5 +425,34 @@ $color-white-light: #FEFFFE;
     .selectedDeviceWrapper {
         flex-direction: column;
         align-items: flex-end !important;
+    }
+
+    .buttonWrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 400px){
+    .checkBoxWrapper {
+        grid-gap: 14px;
+    }
+    .modeTitle {
+        padding-left: 5px;
+    }
+}
+
+@media (max-width: 374px) {
+    .deviceDetailsWrapper {
+        margin-left: 110px;
+        width: calc(100% - 110px);
+        padding: 0px 10px 0px 40px;
+    }
+    .checkBoxWrapper {
+        grid-gap: 10px;
+        justify-content: stretch;
+    }
+    .rangeText {
+        width: 125px;
+        margin-top: 20px;
     }
 }

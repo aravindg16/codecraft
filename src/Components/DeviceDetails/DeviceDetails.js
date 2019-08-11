@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { observer } from 'mobx-react'
 import MdAdd from 'react-ionicons/lib/MdAdd'
 import { state } from '../../state'
@@ -7,11 +7,15 @@ import { Modes } from './Modes'
 import { Intensity } from './Intensity'
 import listOfShades from './ListOfShades.json'
 import listOfModes from './ListOfModes'
+import { NewDevice } from './NewDevice'
 import './DeviceDetails.scss'
 
 class DeviceDetail extends Component {
     onToggleSwitch = () => {
         state.isToggleEnabled = !state.isToggleEnabled
+    }
+    addDevices = () => {
+        state.isModalVisible = !state.isModalVisible
     }
     renderListOfShades = (shade, index) => {
         return <Shades shade={shade} index={index} key={shade + index} />
@@ -23,15 +27,15 @@ class DeviceDetail extends Component {
         const toogleActive = state.isToggleEnabled ? "active" : ""
         const customClass = !state.isSidebarActive ? "active" : ""
         return (
-            <>
+            <Fragment>
                 <div className="mobileDeviceTitle text-uppercase">devices</div>
                 <div className={`deviceDetailsWrapper ${customClass}`}>
-                    <div className={`plusIcon ${customClass}`}>
+                    <div className={`plusIcon ${customClass}`} onClick={this.addDevices}>
                         <MdAdd style={{width:"30px",height:"30px"}} />
                     </div>
                     <div className={`deviceTitleWrapper d-flex align-items-center ${customClass}`}>
                         <div className="deviceTitle text-uppercase">devices</div>
-                        <div className="addDevice justify-content-center align-items-center">
+                        <div className="addDevice justify-content-center align-items-center" onClick={this.addDevices}>
                             <MdAdd style={{width:"30px",height:"30px"}} />
                         </div>
                     </div>
@@ -61,7 +65,8 @@ class DeviceDetail extends Component {
                     </div>
                     <Intensity value={state.intensityValue}/>
                 </div>
-            </>
+                <NewDevice />
+            </Fragment>
         )
     }
 }

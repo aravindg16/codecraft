@@ -8,6 +8,7 @@ class State {
     activeModeIndex = ""
     intensityValue = ""
     isSidebarActive = true
+    isModalVisible = false
 }
 
 decorate(State,{
@@ -17,7 +18,8 @@ decorate(State,{
     activeCheckboxIndex: observable,
     activeModeIndex: observable,
     intensityValue: observable,
-    isSidebarActive: observable
+    isSidebarActive: observable,
+    isModalVisible: observable
 })
 
 const state = new State()
