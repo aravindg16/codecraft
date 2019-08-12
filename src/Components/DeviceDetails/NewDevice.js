@@ -34,7 +34,7 @@ class NewDevices extends Component {
                     <Modal.Title className="text-uppercase font-weight-bold">add device</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <Form className="d-flex flex-column align-items-center login-form" action={this.addDevice} rules={rules} messages={messages}>
+                <Form className="d-flex flex-column align-items-center" action={this.addDevice} rules={rules} messages={messages}>
                     <label className="formLabel">
                         <div className="font-weight-bolder text-capitalize">Device Name:</div>
                         <Input placeholder="Enter Device Name" type="text" name="devicename" required={true} />
